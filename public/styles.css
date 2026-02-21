@@ -1,0 +1,128 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #17324e 0%, #0b1422 55%, #070d16 100%);
+  color: #eaf2ff;
+}
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px;
+}
+.card {
+  background: rgba(17, 27, 43, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+}
+.row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+input {
+  background: #08101c;
+  color: #eaf2ff;
+  border: 1px solid #3f5f84;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 170px;
+}
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(180deg, #ffd54f, #f7b801);
+  color: #1f2a37;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.subtitle {
+  margin-top: -4px;
+  opacity: 0.9;
+}
+.control-card {
+  position: sticky;
+  top: 8px;
+  z-index: 20;
+}
+.hidden {
+  display: none !important;
+}
+.control-row {
+  align-items: center;
+}
+.board-card {
+  padding: 14px;
+}
+.legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+.dot.red { background: #e53935; }
+.dot.green { background: #43a047; }
+.dot.yellow { background: #fdd835; }
+.dot.blue { background: #1e88e5; }
+.dot.safe { background: #26c6da; }
+#boardCanvas {
+  width: 100%;
+  max-width: 980px;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  display: block;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #f5f8ff, #dde5f4);
+  border: 2px solid #6e84a3;
+}
+.player {
+  margin-bottom: 6px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #0d1828;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.color-tag {
+  display: inline-block;
+  min-width: 58px;
+  text-align: center;
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-right: 8px;
+  color: #fff;
+  font-size: 12px;
+}
+.color-red { background: #e53935; }
+.color-green { background: #43a047; }
+.color-yellow { background: #f9a825; color: #232323; }
+.color-blue { background: #1e88e5; }
+
+@media (max-width: 760px) {
+  .app {
+    padding: 10px;
+  }
+  button {
+    flex: 1 1 45%;
+  }
+  input {
+    flex: 1 1 45%;
+  }
+}
