@@ -1,0 +1,138 @@
+:root {
+    --tg-bg: var(--tg-theme-bg-color, #ffffff);
+    --tg-text: var(--tg-theme-text-color, #111111);
+    --tg-hint: var(--tg-theme-hint-color, #6b7280);
+    --tg-link: var(--tg-theme-link-color, #4f8cff);
+    --tg-button: var(--tg-theme-button-color, #4caf50);
+    --tg-button-text: var(--tg-theme-button-text-color, #ffffff);
+    --panel: var(--tg-theme-secondary-bg-color, #f3f4f6);
+    --panel-strong: #2f3640;
+}
+
+body {
+    margin: 0;
+    padding: 0 8px 16px;
+    background: var(--tg-bg);
+    color: var(--tg-text);
+}
+
+.navBar{
+    background-color: var(--panel-strong);
+    overflow: hidden;
+    border-radius: 3px;
+    font-family: "Audiowide", sans-serif;
+}
+
+.navBar a {
+    float: left;
+    color: var(--tg-button-text);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navBar a:hover {
+    background-color: var(--panel);
+    color: var(--tg-text);
+    text-shadow: 3px 3px 3px #ababab;
+}
+
+.navBar a.active {
+    background-color: var(--tg-button);
+    color: var(--tg-button-text);
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    /*overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: var(--panel);
+    margin: 7% auto; /* 7% from the top and centered */
+    padding: 20px;
+    border: 1px solid color-mix(in srgb, var(--tg-text) 25%, transparent);
+    width: 400px; /* Could be more or less, depending on screen size */
+    text-align: center;
+}
+  
+/* The Close Button */
+.close {
+    color: var(--tg-hint);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: var(--tg-text);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
+    transition: 0.3s;
+    border-radius: 5px;
+    position: relative;
+    left: auto;
+    margin: 0 auto;
+    text-align: center;
+    width: 37.5%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0,0.4);
+}
+
+.card .content {
+    padding: 2px 16px;
+}
+
+.card .heading h2 {
+    font-family: "Audiowide", sans-serif;
+    text-shadow: 3px 3px 3px #ababab;
+    text-align: center;
+    color: var(--tg-link);
+    text-decoration: none;
+    cursor: text;
+}
+
+.card .heading h2:hover {
+    color: color-mix(in srgb, var(--tg-link) 70%, var(--tg-text) 30%);
+}
+
+.card .content .playButton {
+    position: relative;
+    bottom: 2px;
+    padding: 4px 4px 4px 4px;
+}
+
+.card .content .playButton #start {
+    align-self: center;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+    .card {
+        width: 92%;
+    }
+
+    .modal-content {
+        width: min(92vw, 400px);
+        margin-top: 25%;
+    }
+}
+    background: var(--panel);

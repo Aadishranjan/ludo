@@ -1,0 +1,393 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --tg-bg: var(--tg-theme-bg-color, #ffffff);
+    --tg-text: var(--tg-theme-text-color, #111111);
+    --tg-hint: var(--tg-theme-hint-color, #6b7280);
+    --tg-link: var(--tg-theme-link-color, #4f8cff);
+    --tg-button: var(--tg-theme-button-color, #2ea043);
+    --tg-button-text: var(--tg-theme-button-text-color, #ffffff);
+    --panel: var(--tg-theme-secondary-bg-color, #f3f4f6);
+    --panel-strong: #2f3640;
+}
+
+body {
+    border: 0;
+    margin: 0;
+    padding: 0 8px 16px;
+    background: var(--tg-bg);
+    color: var(--tg-text);
+}
+
+/*/// navbar ///*/
+.navBar{
+    background-color: var(--panel-strong);
+    overflow: hidden;
+    border-radius: 3px;
+    font-family: "Audiowide", sans-serif;
+}
+
+.navBar a {
+    float: left;
+    color: var(--tg-button-text);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navBar a:hover {
+    background-color: var(--panel);
+    color: var(--tg-text);
+    text-shadow: 3px 3px 3px #ababab;
+}
+
+.navBar a.active {
+    background-color: var(--tg-button);
+    color: var(--tg-button-text);
+}
+
+#my-name {
+    /* float: right; */
+    position: absolute;
+    right: 2px;
+    color: var(--tg-button-text);
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/*///copy///*/
+.copy-wrapper .copy-content {
+    display: none;
+    position: absolute;
+    right: 25px;
+    top: 60px;
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.copy-wrapper {
+    float: left;
+    overflow: hidden;
+    right: 2px;
+    text-align: center;
+}
+
+.copy-wrapper:hover #my-name {
+    cursor: pointer;
+}
+
+.copy-wrapper:hover .copy-content {
+    display: block;
+}
+
+.copy-content #copy {
+    resize: none;
+    border: 2px dotted grey;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+/* .copy-content #copy-btn {
+    background-image: linear-gradient(to bottom right, red, yellow);
+    color: white;
+    font-size: 20px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition-duration: 0.4s;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.14), 0 17px 50px 0 rgba(0,0,0,0.09);
+}
+
+.copy-content #copy-btn:hover {
+    border: 1px solid white;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+} */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*/// heading ///*/
+.heading-tile {
+    text-align: center;
+    border-radius: 5px;
+    font-family: "Audiowide", sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
+    transition: 0.3s;
+    border-radius: 5px;
+    height: 3rem;
+    width: max-content;
+    position: relative;
+    margin: 10px auto 0;
+    top: auto;
+    left: auto;
+}
+
+.heading-tile:hover{
+    text-align: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0,0.8);
+}
+
+.heading-tile h2 {
+    padding: 2px 16px;
+    text-shadow: 3px 3px 3px #ababab;
+    text-align: center;
+    color: var(--tg-link);
+    height: max-content;
+    width: max-content;
+    cursor: text;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 10px;
+}
+
+.heading-tile h2:hover {
+    text-align: center;
+    color: color-mix(in srgb, var(--tg-link) 70%, var(--tg-text) 30%);
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    /*overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: var(--panel);
+    margin: 7% auto; /* 7% from the top and centered */
+    padding: 20px;
+    border: 1px solid color-mix(in srgb, var(--tg-text) 25%, transparent);
+    width: 400px; /* Could be more or less, depending on screen size */
+    text-align: center;
+}
+
+/*/// gameWrapper = gameboard + diceboard ///*/
+.gameWrapper{
+    position: relative;
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+}
+
+.gameBoard {
+    align-content: center;
+    position: relative;
+    width: min(95vw, 800px);
+    height: min(95vw, 800px);
+}
+.ludoImg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.board-name {
+    position: absolute;
+    z-index: 5;
+    background: rgba(12, 25, 45, 0.86);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+.board-name.zone-0 { top: 6px; left: 6px; }
+.board-name.zone-1 { top: 6px; right: 6px; }
+.board-name.zone-2 { bottom: 6px; right: 6px; }
+.board-name.zone-3 { bottom: 6px; left: 6px; }
+
+#green, #blue, #red, #yellow {
+    z-index: 2;
+}
+
+.gameCanvas {
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    border: 2px solid;
+    z-index: 1;
+}
+
+.diceBoard {
+    position: relative;
+    width: min(95vw, 800px);
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.msgBoard {
+    float: top;
+    width: 100%;
+    min-height: 64px;
+    height: auto;
+    border-radius: 5px;
+    align-content: center;
+    padding: 8px 8px 8px 8px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+.turnBar {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 120px 1fr;
+    gap: 8px;
+    align-items: center;
+    background: #0a3b91;
+    border: 3px solid #f0c419;
+    border-radius: 14px;
+    padding: 8px;
+}
+
+.turnName {
+    color: #ffd028;
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+}
+
+#randomButt, #copy-btn, #RESUME, #WAIT {
+    background: linear-gradient(180deg, #ffea8f, #ffc83d);
+    color: #17335c;
+    font-size: 26px;
+    font-weight: 900;
+    padding: 10px 12px;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.14), 0 17px 50px 0 rgba(0,0,0,0.09);
+    border: 2px solid #f8e58a;
+}
+
+#randomButt:hover, #copy-btn:hover, #RESUME:hover, #WAIT {
+    border: 1px solid white;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.message {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.messageFromServer {
+    position: relative;
+    left: 20px;
+    margin-right: 40px;
+    text-align: center;
+    color: var(--tg-text);
+}
+
+#color-message-span1,#theOneWhoLeft{
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+#color-message-span2{
+    font-family: 'Roboto Slab', serif;
+}
+
+@media (max-width: 900px) {
+    .heading-tile {
+        width: 100%;
+        height: auto;
+    }
+
+    .heading-tile h2 {
+        width: auto;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .ludoImg {
+        width: 100%;
+        height: auto;
+    }
+
+    .gameCanvas {
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+        top: 20px;
+        left: 20px;
+    }
+
+    .turnBar {
+        grid-template-columns: 1fr 90px 1fr;
+    }
+
+    .turnName {
+        font-size: 22px;
+    }
+
+    .board-name {
+        font-size: 18px;
+        padding: 5px 8px;
+    }
+
+    .modal-content {
+        width: min(92vw, 400px);
+        margin-top: 25%;
+    }
+}

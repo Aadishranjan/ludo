@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUDO</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/ludo.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src='/socket.io/socket.io.js'></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
+    <meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="000000">
+    <meta name="theme-color" content="000000">
+</head>
+<body>
+    <div class="navBar">
+        <a href="">HOME</a>
+        <a href="">LUDO</a>
+        <a href="about">ABOUT</a>
+        <h3 id="my-name">&#10024; Player</h3>
+    </div>
+
+    <div class="heading-tile">
+        <h2>LUDO - A 4 Player Game</h2>
+    </div>
+    
+    <div id="myModal-1" class="modal">
+        <div class="modal-content">
+                <h3 id="win-win"></h3>
+                <button id="HOME" onclick='window.location.replace("/");'>HOME</button>
+            <br>
+        </div>  
+    </div>
+    <div id="myModal-2" class="modal">
+        <div class="modal-content" style="margin: 15% auto;">
+                <h3 id="resume">Resume the game without <span id="theOneWhoLeft"></span><span id="seconds"> in 10</span>.</h3>
+                <button id="RESUME" >RESUME</button>
+                <button id="WAIT" >WAIT</button>
+            <br>
+        </div>  
+    </div>
+
+    <div class="gameWrapper">
+        <div class="gameBoard">
+            <img src="/images/LUDO_BOARD.svg" alt="THIS IS AN IMAGE" class="ludoImg" >
+            <div class="board-name zone-0" id="zone-name-0">Green</div>
+            <div class="board-name zone-1" id="zone-name-1">Red</div>
+            <div class="board-name zone-2" id="zone-name-2">Blue</div>
+            <div class="board-name zone-3" id="zone-name-3">Yellow</div>
+            <canvas class="gameCanvas" id="theCanvas"></canvas>
+        </div>
+        <div class="diceBoard">
+            <div class="msgBoard">
+                <div class="messageFromServer">
+                    <strong id="status-line">LET US START THE GAME!!!</strong>
+                </div>
+            </div>
+            <div class="turnBar">
+                <div class="turnName" id="turn-left">You</div>
+                <button id="randomButt">GO</button>
+                <div class="turnName" id="turn-right">Player</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/ludo.js"></script>
+</body>
+</html>

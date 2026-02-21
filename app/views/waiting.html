@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ludo Lobby</title>
+  <link rel="stylesheet" href="/style/waiting.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src='/socket.io/socket.io.js'></script>
+</head>
+<body>
+  <main class="panel">
+    <h1>Ludo Lobby</h1>
+    <p id="roomLine">Room: -</p>
+    <p id="waitLine">Waiting for players...</p>
+    <p id="countLine">Players in lobby: 0</p>
+    <h3>Players</h3>
+    <ul id="playerList"></ul>
+    <button id="startBtn" disabled>Play</button>
+  </main>
+  <script src="/js/waiting.js"></script>
+</body>
+</html>

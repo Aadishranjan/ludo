@@ -1,5 +1,4 @@
-node_modules
+app/node_modules/
+.vscode
+app/test/drivers/*
 .env
-npm-debug.log*
-.DS_Store
-coverage
