@@ -1,0 +1,16 @@
+{
+  "name": "telegram-ludo-saas",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "bot",
+    "server"
+  ],
+  "scripts": {
+    "install:all": "npm install --workspaces",
+    "dev:server": "npm --workspace server run dev",
+    "dev:bot": "npm --workspace bot run dev",
+    "start:server": "npm --workspace server run start",
+    "start:bot": "npm --workspace bot run start"
+  }
+}

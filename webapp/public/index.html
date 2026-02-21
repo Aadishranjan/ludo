@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telegram Ludo</title>
+    <link rel="stylesheet" href="/app/styles.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.90.0/dist/phaser.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div class="hud">
+      <div id="roomInfo">Room: -</div>
+      <div id="turnInfo">Turn: -</div>
+      <div id="statusInfo">Status: waiting</div>
+      <div class="actions">
+        <button id="startBtn">Start Game</button>
+        <button id="rollBtn">Roll Dice</button>
+      </div>
+      <div id="winnerInfo"></div>
+    </div>
+    <div id="game"></div>
+    <script type="module" src="/app/app.js"></script>
+  </body>
+</html>

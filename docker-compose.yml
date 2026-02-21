@@ -1,0 +1,45 @@
+version: '3.9'
+services:
+  mongo:
+    image: mongo:7
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:7-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+
+  server:
+    image: node:20-alpine
+    restart: always
+    working_dir: /app
+    command: sh -c "npm install && npm --workspace server run start"
+    env_file:
+      - .env
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./:/app
+    depends_on:
+      - mongo
+      - redis
+
+  bot:
+    image: node:20-alpine
+    restart: always
+    working_dir: /app
+    command: sh -c "npm install && npm --workspace bot run start"
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    depends_on:
+      - server
+
+volumes:
+  mongo_data:
